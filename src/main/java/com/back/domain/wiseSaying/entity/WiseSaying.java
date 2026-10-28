@@ -1,19 +1,26 @@
-package com.back;
+package com.back.domain.wiseSaying.entity;
 
 public class WiseSaying {
 
-    private final int id;
+    private int id;
     private String sentence;
     private String author;
 
-    public WiseSaying(int id, String sentence, String author) {
-        this.id=id;
-        this.sentence=sentence;
-        this.author=author;
+    public WiseSaying(String sentence, String author) {
+        this.sentence = sentence;
+        this.author = author;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isNew() {
+        return id == 0;
     }
 
     public String getSentence() {
@@ -25,10 +32,10 @@ public class WiseSaying {
     }
 
     public void setSentence(String sentence) {
-        this.sentence=sentence;
+        this.sentence = sentence;
     }
 
     public void setAuthor(String author) {
-        this.author=author;
+        this.author = author;
     }
 }
