@@ -9,9 +9,21 @@ import java.util.Scanner;
 
 public class AppContext {
 
-    public static final Scanner sc = new Scanner(System.in);
-    public static final WiseSayingRepository wiseSayingRepository = new WiseSayingRepository();
-    public static final WiseSayingService wiseSayingService = new WiseSayingService(wiseSayingRepository);
-    public static final WiseSayingController wiseSayingController = new WiseSayingController(sc, wiseSayingService);
-    public static final SystemController systemController = new SystemController();
+    public static Scanner sc;
+    public static WiseSayingRepository wiseSayingRepository;
+    public static WiseSayingService wiseSayingService;
+    public static WiseSayingController wiseSayingController;
+    public static SystemController systemController;
+
+    public static void renew(Scanner _sc) {
+        sc = _sc;
+        wiseSayingRepository = new WiseSayingRepository();
+        wiseSayingService = new WiseSayingService(wiseSayingRepository);
+        wiseSayingController = new WiseSayingController(sc, wiseSayingService);
+        systemController = new SystemController();
+    }
+
+    public static void renew() {
+        renew(new Scanner(System.in));
+    }
 }
